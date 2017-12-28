@@ -29,5 +29,6 @@ class Cube {
 	int up; //index of the up face
 };
 
-//operator++ calls roll_forward then reset
 Scores Cube::score = Scores();
+
+//operator++ calls roll_forward then reset

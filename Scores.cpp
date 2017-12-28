@@ -3,7 +3,7 @@
 class Scores {
 	public:
 	Scores(){
-		//reads the scores file and makes the scores map
+		//reads the scores.txt file and makes the scores map
 	}
 
 	int operator[](const char c) const {
