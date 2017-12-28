@@ -2,33 +2,36 @@
 
 static const int Cube::SIDES = 6;
 
-static const Letter Cube::A = Letter('a', 1);
-static const Letter Cube::B = Letter('b', 1);
-static const Letter Cube::C = Letter('c', 1);
-static const Letter Cube::D = Letter('d', 1);
-static const Letter Cube::E = Letter('e', 1);
-static const Letter Cube::F = Letter('f', 1);
-static const Letter Cube::G = Letter('g', 1);
-static const Letter Cube::H = Letter('h', 1);
-static const Letter Cube::I = Letter('i', 1);
-static const Letter Cube::J = Letter('j', 1);
-static const Letter Cube::K = Letter('k', 1);
-static const Letter Cube::L = Letter('l', 1);
-static const Letter Cube::M = Letter('m', 1);
-static const Letter Cube::N = Letter('n', 1);
-static const Letter Cube::O = Letter('o', 1);
-static const Letter Cube::P = Letter('p', 1);
-static const Letter Cube::Q = Letter('q', 1);
-static const Letter Cube::R = Letter('r', 1);
-static const Letter Cube::S = Letter('s', 1);
-static const Letter Cube::T = Letter('t', 1);
-static const Letter Cube::U = Letter('u', 1);
-static const Letter Cube::V = Letter('v', 1);
-static const Letter Cube::W = Letter('w', 1);
-static const Letter Cube::X = Letter('x', 1);
-static const Letter Cube::Y = Letter('y', 1);
-static const Letter Cube::Z = Letter('z', 1);
+#pragma region "Letters"
+static const Letter Cube::A = Letter('a', 1); 
+static const Letter Cube::B = Letter('b', 3); 
+static const Letter Cube::C = Letter('c', 3); 
+static const Letter Cube::D = Letter('d', 2); 
+static const Letter Cube::E = Letter('e', 1); 
+static const Letter Cube::F = Letter('f', 4); 
+static const Letter Cube::G = Letter('g', 2); 
+static const Letter Cube::H = Letter('h', 4); 
+static const Letter Cube::I = Letter('i', 1); 
+static const Letter Cube::J = Letter('j', 8);
+static const Letter Cube::K = Letter('k', 5); 
+static const Letter Cube::L = Letter('l', 1); 
+static const Letter Cube::M = Letter('m', 3); 
+static const Letter Cube::N = Letter('n', 1); 
+static const Letter Cube::O = Letter('o', 1); 
+static const Letter Cube::P = Letter('p', 3); 
+static const Letter Cube::Q = Letter('q', 10); 
+static const Letter Cube::R = Letter('r', 1); 
+static const Letter Cube::S = Letter('s', 1); 
+static const Letter Cube::T = Letter('t', 1); 
+static const Letter Cube::U = Letter('u', 1); 
+static const Letter Cube::V = Letter('v', 4); 
+static const Letter Cube::W = Letter('w', 4); 
+static const Letter Cube::X = Letter('x', 8); 
+static const Letter Cube::Y = Letter('y', 4); 
+static const Letter Cube::Z = Letter('z', 10);
+#pragma endregion
 
+#pragma region "Refrence"
 static refrence['a'] = A;
 static refrence['b'] = B;
 static refrence['c'] = C;
@@ -55,6 +58,7 @@ static refrence['w'] = W;
 static refrence['x'] = X;
 static refrence['y'] = Y;
 static refrence['z'] = Z;
+#pragma endregion
 
 Cube::Cube(const std::string &faces_in){
 	for(int i = 0; i < SIDES; ++i){

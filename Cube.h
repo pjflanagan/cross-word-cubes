@@ -8,6 +8,7 @@
 class Cube {
 	public:
 	// the letters and their values
+	#pragma region "Letters"
 	static const Letter A;
 	static const Letter B;
 	static const Letter C;
@@ -34,6 +35,7 @@ class Cube {
 	static const Letter X;
 	static const Letter Y;
 	static const Letter Z;
+	#pragma endregion
 
 	// REQUIRES faces is a 6 character string with lowercase characters
 	Cube(const std::string &faces_in);
