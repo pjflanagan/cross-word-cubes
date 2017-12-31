@@ -1,10 +1,14 @@
-#include <iostream>
+#include <utility>
 #include <string>
 
-int main (){
+class Roll {
+	public:
+	Roll(std::string & roll, int value){
 
-	//initialize cubes listed in the cubes.txt
+	}
 
-	//make the 6^14 options for rolls in a text file to be used later
+	//comparitor to sort the rolls by value within the priority queue
 
-}
+	private:
+	std::pair <std::string, int> roll; 
+};

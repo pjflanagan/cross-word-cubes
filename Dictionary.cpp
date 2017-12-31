@@ -4,7 +4,8 @@
 class Dictionary {
 	public:
 	Dictionary(){
-		// reads the words.txt file and makes the scores map
+		// reads the dictionary.txt file and makes the scores map
+		// ignores words over x letters long (14 for sure but probably 9)
 		// add the score made by summing the letters	
 	}
 

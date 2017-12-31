@@ -7,7 +7,7 @@ class Cube {
 
 	// REQUIRES faces is a 6 character string with lowercase characters
 	Cube(const std::string &faces_in){
-
+		//order the faces by value
 	}
 	
 	// RETURNS the char representing the up face
