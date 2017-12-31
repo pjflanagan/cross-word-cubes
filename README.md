@@ -1,5 +1,8 @@
 # Cross Word Cubes
 
+My attempt at programmatically finding the highest possible Cross Word Cubes roll and arrangement. Edit
+Add topics
+
 ## Rules
 
 Cross Word Cubes is a scrabble game played with 14 dice with letters on each face.
@@ -11,7 +14,7 @@ possible within the game. This program is an attempt at finding that high score.
 
 ## Process
 1. Create all unique combinations of rolls from the 14 dice. 
-To save time we will only be testing the highest scoring rolls.
-2. Test possible arangements of cubes for each roll
-Unsure how to do this but most likeley will be finding sets of valid words
+To save time we will only be testing the top hundred thousand or so highest scoring rolls.
+2. Test possible arangements of cubes for each roll.
+I'm unsure how to do this but most likeley will be finding sets of valid words
 within the roll and then aranging those sets at valid intersections.
