@@ -1,4 +1,4 @@
-#include "Scores.cpp"
+#include "../Scores.cpp"
 
 class Cube {
 	public:
