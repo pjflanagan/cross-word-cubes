@@ -27,4 +27,7 @@ no particular order. The cube with 2 h's might be incorrect.
 ```
 g++ Rolls/_rolls.cpp -o roll.exe
 ./roll.exe > Rolls/roll-#.txt
+
+g++ Words/_generate_dict.cpp -o generate.exe
+./generate.exe > Solve/dictionary_values.txt
 ```

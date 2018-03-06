@@ -6,8 +6,6 @@
 
 #include "../Scores.cpp"
 
-#include <iostream>
-
 
 class Cube {
 	public:

@@ -1,6 +1,5 @@
 #include <vector>
 #include <iostream>
-#include <deque>
 #include <queue>
 #include <sstream>
 #include <fstream>
@@ -20,6 +19,7 @@ class Roller {
 		//and a min priority queue to make it so it's top rolls
 	}
 
+	//MODIFIES determines if the score and roll pair should be added
 	void add(std::string & roll_str, int score){
 		//alphebetize the roll
 		std::sort(roll_str.begin(), roll_str.end()); 
@@ -42,6 +42,8 @@ class Roller {
 		
 	}
 
+	//REQURES roll_str is empty, cube is 0, and score is 0
+	//MODIFIES inserts the score and roll pair into both objects
 	void insert(std::string & roll_str, int score){
 		//add it to the priority queue
 		roll_queue.push(std::pair<int, std::string>(score, roll_str));
@@ -49,10 +51,12 @@ class Roller {
 		top_rolls.insert(std::pair<std::string, int>(roll_str, score));
 	}
 
+	//MODIFIES calls the roll function with the default values
 	void roll(){
 		roll("", 0, 0);
 	}
 
+	//MODIFIES generates all possible rolls
 	void roll(std::string roll_str, int cube, int score){
 		//if this is the last cube
 		if(cube == CUBES){
@@ -73,6 +77,7 @@ class Roller {
 		}
 	}
 
+	//MODIFIES prints the roll and score pair to the stream
 	void output(){
 		//print each of priority queue of pairs and their values
 		while(!roll_queue.empty()){
@@ -83,7 +88,7 @@ class Roller {
 	}
 
 	private:
-	static const int CUBES = 10; //for 6 do top 10000
+	static const int CUBES = 14; //for 6 do top 10000
 	static const int SIDES = 6;
 	static const long MAX = 10000;
 
@@ -114,7 +119,7 @@ int main(int argc, char *argv[]){
 	//initialize cubes listed in the cubes.txt
 	std::vector<Cube> cubes;
 
-	//order the cubes by reverse value
+	//read the cubes
 	std::ifstream cube_file("Rolls/cubes.txt");
 	std::string faces;
 	while(cube_file >> faces){
@@ -133,20 +138,3 @@ int main(int argc, char *argv[]){
 
 	return 0;
 }
-
-
-
-/*
-function(string, current){
-	if on the final cube {
-		if the score of the roll is greater than the least in
-		our rolls or rolls is shorter than 100 thousand {
-			add it to the list
-		}
-		return
-	}
-	else for each side of the next cube	{
-		add it to the string
-	}
-}
-*/
