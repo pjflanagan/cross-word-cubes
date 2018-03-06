@@ -22,3 +22,9 @@ within the roll and then aranging those sets at valid intersections.
 - cubes.txt are the cubes used in the game. Faces are ordered by value but the cubes are in 
 no particular order. The cube with 2 h's might be incorrect.
 - scores.txt value of each letter used in the game in alphabetical order.
+
+## Run
+```
+g++ Rolls/_rolls.cpp -o roll.exe
+./roll.exe > Rolls/roll-#.txt
+```

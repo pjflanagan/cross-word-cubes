@@ -68,7 +68,7 @@ class Roller {
 			roll(
 				roll_str + c, 
 				cube + 1, 
-				score += scores[c]
+				score + scores[c]
 			);
 		}
 	}
@@ -83,15 +83,16 @@ class Roller {
 	}
 
 	private:
-	static const int CUBES = 6; //for 6 do top 10000
+	static const int CUBES = 10; //for 6 do top 10000
 	static const int SIDES = 6;
 	static const long MAX = 10000;
 
 	std::map<std::string, int> top_rolls;
 	std::priority_queue<
 		std::pair<int, std::string>, 
-		std::vector<std::pair<int, std::string> >
-		> roll_queue;
+		std::vector<std::pair<int, std::string> >,
+		std::greater<std::pair<int, std::string> >
+	> roll_queue;
 
 	std::ostringstream * os;
 	std::vector<Cube> & cubes;
