@@ -1,34 +1,67 @@
+#ifndef CUBE_CPP
+#define CUBE_CPP
+
+#include <vector>
+#include <string>
+
 #include "../Scores.cpp"
+
+#include <iostream>
+
 
 class Cube {
 	public:
 	static const int SIDES = 6;
-	static Scores score;
+
+	Cube(){};
 
 	// REQUIRES faces is a 6 character string with lowercase characters
 	Cube(const std::string &faces_in){
-		//order the faces by value
+		scores = Scores();
+		int v = 0;
+		for(int i = 0; i < SIDES; ++i){
+			v += scores[faces_in.at(i)];
+			faces[i] = faces_in.at(i);
+		}
+		value = v;
 	}
 	
 	// RETURNS the char representing the up face
-	char get_char() const{
-		return faces[up];
+	char get_char(int face) const{
+		return faces[face];
 	}
 
-	// RETURNS the value of the up face
-	int get_val() const{
-		return score[faces[up]];
+	// RETURNS the value of the whole cube
+	int get_value() const {
+		return value;
 	}
-
-	//roll_forward
-
-	//reset
 
 	private: 
+	Scores scores;
 	char faces[6];
-	int up; //index of the up face
+	int value; //total value of the cube
 };
 
-Scores Cube::score = Scores();
+#endif
 
-//operator++ calls roll_forward then reset
+
+
+
+/*
+// MODIFIES the cube to move to the next face
+void roll_forward() {
+	up = (up == 5) ? 0 : up + 1;
+}
+
+// MODIFIES the cube to move to the next face
+Cube & operator++(){
+	roll_forward();
+	return *this;
+}
+
+// MODIFIES the cube to move to the next face
+Cube operator++(int){
+	Cube result(*this);
+	++(*this);
+	return result;
+}*/

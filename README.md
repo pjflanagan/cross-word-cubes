@@ -1,7 +1,6 @@
 # Cross Word Cubes
 
-My attempt at programmatically finding the highest possible Cross Word Cubes roll and arrangement. Edit
-Add topics
+My attempt at programmatically finding the highest possible Cross Word Cubes roll and arrangement. 
 
 ## Rules
 
@@ -18,3 +17,8 @@ To save time we will only be testing the top hundred thousand or so highest scor
 2. Test possible arangements of cubes for each roll.
 I'm unsure how to do this but most likeley will be finding sets of valid words
 within the roll and then aranging those sets at valid intersections.
+
+## Files
+- cubes.txt are the cubes used in the game. Faces are ordered by value but the cubes are in 
+no particular order. The cube with 2 h's might be incorrect.
+- scores.txt value of each letter used in the game in alphabetical order.
