@@ -29,14 +29,17 @@ class Roller {
 		if(it != top_rolls.end()) 
 			return;
 
-		//if rolls is shorter than MAX
+		//if rolls is 0 //shorter than MAX
 		if (roll_queue.size() < MAX){
 			insert(roll_str, score);
 		}
 		//if the score of the roll is greater than the least in our rolls
-		else if(score > roll_queue.top().first){
-			//pop the top
+		if(score > roll_queue.top().first){
+			//remove from the map
+			top_rolls.erase(roll_queue.top().second);
+			//remove from the queue
 			roll_queue.pop();
+			//insert the new value into both
 			insert(roll_str, score);
 		}
 		
@@ -65,6 +68,11 @@ class Roller {
 			return;
 		}
 
+		//if the score won't be that high then cancel
+		if(cube * 2.4 > score){
+			return;
+		}
+
 		//for each side of the next cube
 		for(int i = 0; i < SIDES; i++){
 			char c = cubes[cube].get_char(i);
@@ -88,7 +96,7 @@ class Roller {
 	}
 
 	private:
-	static const int CUBES = 14; //for 6 do top 10000
+	static const int CUBES = 10; //for 6 do top 10000
 	static const int SIDES = 6;
 	static const long MAX = 10000;
 

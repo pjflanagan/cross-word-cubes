@@ -26,7 +26,7 @@ Scores::Scores(){
 }
 
 int Scores::operator[](const char c) const {
-	return value(c);
+	return scores.at(c);
 }
 
 int Scores::value(const char c) const {
