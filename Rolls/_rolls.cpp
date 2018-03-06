@@ -1,10 +1,11 @@
 #include <vector>
 #include <iostream>
 #include <deque>
+#include <queue>
 #include <sstream>
 #include <fstream>
 #include <algorithm>
-
+#include <map>
 
 #include "../Scores.cpp"
 #include "Cube.cpp"
@@ -19,19 +20,33 @@ class Roller {
 		//and a min priority queue to make it so it's top rolls
 	}
 
-	void add(std::string & roll_str){
-
+	void add(std::string & roll_str, int score){
 		//alphebetize the roll
 		std::sort(roll_str.begin(), roll_str.end()); 
 
-		//if the hash of this is already in the table then
-			//return
+		//if the value is already in the list then return
+		std::map<std::string,int>::iterator it = top_rolls.find(roll_str);
+		if(it != top_rolls.end()) 
+			return;
 
-		//if the score of the roll is greater than the least in
-		//our rolls or rolls is shorter than 100 thousand {
-		//	add it to the priority queue
-		//	add it to the hash table
-		//}
+		//if rolls is shorter than MAX
+		if (roll_queue.size() < MAX){
+			insert(roll_str, score);
+		}
+		//if the score of the roll is greater than the least in our rolls
+		else if(score > roll_queue.top().first){
+			//pop the top
+			roll_queue.pop();
+			insert(roll_str, score);
+		}
+		
+	}
+
+	void insert(std::string & roll_str, int score){
+		//add it to the priority queue
+		roll_queue.push(std::pair<int, std::string>(score, roll_str));
+		//add it to the hash table
+		top_rolls.insert(std::pair<std::string, int>(roll_str, score));
 	}
 
 	void roll(){
@@ -39,14 +54,17 @@ class Roller {
 	}
 
 	void roll(std::string roll_str, int cube, int score){
+		//if this is the last cube
 		if(cube == CUBES){
-			add(roll_str);
-			
+			//attempt to add it 
+			add(roll_str, score);
 			return;
 		}
 
+		//for each side of the next cube
 		for(int i = 0; i < SIDES; i++){
 			char c = cubes[cube].get_char(i);
+			//call the roll function again
 			roll(
 				roll_str + c, 
 				cube + 1, 
@@ -56,22 +74,34 @@ class Roller {
 	}
 
 	void output(){
-		//for each in priority queue of pairs
-		//*os << roll_str << " " << score << "\n";
+		//print each of priority queue of pairs and their values
+		while(!roll_queue.empty()){
+			*os << roll_queue.top().second << " " << roll_queue.top().first << "\n";
+			roll_queue.pop();
+		}
 		return;
 	}
 
 	private:
 	static const int CUBES = 6; //for 6 do top 10000
 	static const int SIDES = 6;
+	static const long MAX = 10000;
 
-	//hash table
-	//priority queue
+	std::map<std::string, int> top_rolls;
+	std::priority_queue<
+		std::pair<int, std::string>, 
+		std::vector<std::pair<int, std::string> >
+		> roll_queue;
+
 	std::ostringstream * os;
 	std::vector<Cube> & cubes;
 	Scores & scores;
 };
 
+
+// -----------------------------------------------------------------------------
+// MAIN
+// -----------------------------------------------------------------------------
 int main(int argc, char *argv[]){
 
 	std::ios_base::sync_with_stdio(false);
