@@ -69,7 +69,7 @@ class Roller {
 		}
 
 		//if the score won't be that high then cancel
-		if(cube * 2.4 > score){
+		if(cube * 4.1 > score){
 			return;
 		}
 

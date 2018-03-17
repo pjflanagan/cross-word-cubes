@@ -4,6 +4,7 @@
 #include <unordered_map>
 #include <string>
 #include <fstream>
+#include <vector>
 
 class Dictionary {
 	public:
@@ -26,6 +27,8 @@ class Dictionary {
 
 	}
 
+	//ANAGRAM FUNCTION
+
 	//REQUIRES s is a string in the dictionary
 	//EFFECTS returns the value of the string s
 	int operator[](const std::string & s) const {
@@ -34,6 +37,7 @@ class Dictionary {
 
 	private:
 	static std::unordered_map<std::string, int> dictionary; //word, score
+	static std::unordered_map<std::string, std::vector<std::string>> anagram;
 
 }; 
 
