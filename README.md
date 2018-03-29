@@ -27,13 +27,13 @@ of the horizontal words and vertical words are totaled. The letter used where a
 vertical and horizontal word crosses is counted twice in scoring. The total values
 of the cubes not used is deducted from the total score.
 
-## Project Objective
+## Project 
 
 This game has the potential for high scoring rolls, each with a corresponding high scoring arangement. 
 This program is an attempt at finding the single highest scoring roll and arangement
 possible within the game.
 
-## Process
+### Process
 1. Create all unique combinations of rolls from the 14 dice. 
 To save time we will only be testing the top ten thousand or so highest scoring rolls.
 2. Test possible arangements of cubes for each roll.
@@ -41,7 +41,7 @@ This algorithm will work its way down the list of high scoring rolls and
 devise potential words from each roll. It will then intersect those words and check 
 that the arangement remains valid.
 
-## Files
+### Files
 - cubes.txt contains the cubes used in the game. Cubes are arranged in descending value order
 and faces are ordered by descending value. The last two cubes contain an extra 'a'
 rather than a wildcard '*' for the sake of ease.
@@ -49,10 +49,10 @@ rather than a wildcard '*' for the sake of ease.
 - dictionary_original.txt is not included in this repository but is an english dictionary 
 found on a [Github repository](https://github.com/dwyl/english-words/blob/master/words.txt).
 
-## Run
+### Run Commands
 ```
 g++ Rolls/_rolls.cpp -o roll.exe
-./roll.exe > Rolls/roll-#.txt
+./roll.exe > Rolls/roll.txt
 
 g++ Words/_generate_dict.cpp -o generate.exe
 ./generate.exe > Solve/dictionary_values.txt
