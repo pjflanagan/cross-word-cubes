@@ -40,7 +40,7 @@ int main(int argc, char *argv[]){
 
 //EFFECTS returns true when the word is less than 14 and greater than 1
 bool valid(std::string & word){
-	return 	word.length() >= 1 &&
+	return 	word.length() > 1 && //all 1 letter words are valid but do not count for points
 			word.length() < 14;
 }
 

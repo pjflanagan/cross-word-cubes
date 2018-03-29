@@ -96,7 +96,7 @@ class Roller {
 	}
 
 	private:
-	static const int CUBES = 10; //for 6 do top 10000
+	static const int CUBES = 14; //for 6 do top 10000
 	static const int SIDES = 6;
 	static const long MAX = 10000;
 
