@@ -3,3 +3,4 @@
 .vscode
 *.exe
 **/*solutions/*
+.DS_Store

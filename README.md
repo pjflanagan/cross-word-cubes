@@ -47,13 +47,13 @@ and faces are ordered by descending value. The last two cubes contain an extra '
 rather than a wildcard '*' for the sake of ease.
 - scores.txt contains the value of each letter used in the game in alphabetical order.
 - dictionary_original.txt is not included in this repository but is an english dictionary 
-found on a [Github repository](https://github.com/dwyl/english-words/blob/master/words.txt).
+found on a [Github repository](https://raw.githubusercontent.com/dwyl/english-words/master/words_alpha.txt).
 
 ### Run Commands
 ```
-g++ Rolls/_rolls.cpp -o roll.exe
-./roll.exe > Rolls/roll.txt
-
-g++ Words/_generate_dict.cpp -o generate.exe
-./generate.exe > Solve/dictionary_values.txt
+make build-rolls
+make run-rolls
+make build-dict
+make run-dict
+make build-solve
 ```

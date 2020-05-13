@@ -48,7 +48,6 @@ class Grid {
 	void clear();
 
 	Dictionary dict;
-	char grid[14][14]; // I'm not sure I like this
 
 	std::string roll;
 	std::vector<std::string> solution_words;
